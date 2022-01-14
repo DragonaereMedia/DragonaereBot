@@ -1,0 +1,14 @@
+{
+  "name": "dragonaere",
+  "version": "1.0.0",
+  "description": "Dragonaere Discord Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Still",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
