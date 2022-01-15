@@ -2,20 +2,49 @@ require('dotenv').config();
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const { Manager } = require("erela.js");
 
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	// Set a new item in the Collection
-	// With the key as the command name and the value as the exported module
 	client.commands.set(command.data.name, command);
 }
 
+client.manager = new Manager({
+	nodes: [{
+		host: "lava.link",
+		port: 80,
+		retryDelay: 5000,
+	}],
+	autoPlay: true,
+	send: (id, payload) => {
+		const guild = client.guilds.cache.get(id);
+		if (guild) guild.shard.send(payload);
+	}
+})
+	.on("nodeConnect", node => console.log(`Node "${node.options.identifier}" connected.`))
+	.on("nodeError", (node, error) => console.log(
+		`Node "${node.options.identifier}" encountered an error: ${error.message}.`
+	))
+	.on("trackStart", (player, track) => {
+		const channel = client.channels.cache.get(player.textChannel);
+		channel.send(`Now playing: \`${track.title}\`, requested by \`${track.requester.tag}\`.`);
+	})
+	.on("queueEnd", player => {
+		const channel = client.channels.cache.get(player.textChannel);
+		channel.send("Queue has ended.");
+		player.destroy();
+	});
+
+
 client.once('ready', () => {
+	client.manager.init(client.user.id);
 	console.log(`Ready! Logged in as ${client.user.tag}`);
 });
+
+client.on("raw", d => client.manager.updateVoiceState(d));
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
