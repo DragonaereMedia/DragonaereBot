@@ -26,7 +26,7 @@ client.on('interactionCreate', async interaction => {
 
 	try {
 		await command.execute(interaction)
-		console.log(`${interaction.user.tag} triggered an interaction.`);
+		console.log(`${interaction.user.tag} ran a command.`);
 
 	} catch (error) {
 		console.error(error);
