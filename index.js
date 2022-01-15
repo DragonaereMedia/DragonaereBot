@@ -1,7 +1,6 @@
+require('dotenv').config();
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
-const { token } = require('.env');
-
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.commands = new Collection();
@@ -35,4 +34,4 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-client.login(process.env.token);
+client.login(process.env.TOKEN);
