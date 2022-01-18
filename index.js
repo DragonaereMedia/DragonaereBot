@@ -31,13 +31,13 @@ const users = {};
  * @param {guild} guild - guild to kick user from
  */
 async function kickBaddie(user, guild) {
-  const member = guild.member(user);
-  if (!member) return;
-  try {
-    await member.kick('Was a jerk');
-  } catch (err) {
-    console.log(`Could not kick user ${user.username}: ${err}`);
-  }
+	const member = guild.member(user);
+	if (!member) return;
+	try {
+		await member.kick('Was a jerk');
+	} catch (err) {
+		console.log(`Could not kick user ${user.username}: ${err}`);
+	}
 }
 
 /**
@@ -48,15 +48,15 @@ async function kickBaddie(user, guild) {
  * kick the users
  */
 async function evaluateMessage(message) {
-  let scores;
-  try {
-    scores = await perspective.analyzeText(message.content);
-  } catch (err) {
-    console.log(err);
-    return false;
-  }
-  // Return whether or not we should kick the user
-  return (users[userid]['TOXICITY'] > process.env.KICK_THRESHOLD);
+	let scores;
+	try {
+		scores = await perspective.analyzeText(message.content);
+	} catch (err) {
+		console.log(err);
+		return false;
+	}
+	// Return whether or not we should kick the user
+	return (users[userid]['TOXICITY'] > process.env.KICK_THRESHOLD);
 }
 
 /**
@@ -64,50 +64,49 @@ async function evaluateMessage(message) {
  * @return {string} karma - printable karma scores
  */
 function getKarma() {
-  const scores = [];
-  for (const user in users) {
-    if (!Object.keys(users[user]).length) continue;
-    let score = `<@${user}> - `;
-    for (const attr in users[user]) {
-      score += `${emojiMap[attr]} : ${users[user][attr]}\t`;
-    }
-    scores.push(score);
-  }
-  console.log(scores);
-  if (!scores.length) {
-    return '';
-  }
-  return scores.join('\n');
+	const scores = [];
+	for (const user in users) {
+		if (!Object.keys(users[user]).length) continue;
+		let score = `<@${user}> - `;
+		for (const attr in users[user]) {
+			score += `${emojiMap[attr]} : ${users[user][attr]}\t`;
+		}
+		scores.push(score);
+	}
+	console.log(scores);
+	if (!scores.length) {
+		return '';
+	}
+	return scores.join('\n');
 }
 
 client.on('ready', () => {
-  console.log('I am ready!');
+	console.log('I am ready!');
 });
 
 client.on('message', async (message) => {
-  // Ignore messages that aren't from a guild
-  // or are from a bot
-  if (!message.guild || message.author.bot) return;
+	// Ignore messages that aren't from a guild
+	// or are from a bot
+	if (!message.guild || message.author.bot) return;
+	
+	// If we've never seen a user before, add them to memory
+	const userid = message.author.id;
+	if (!users[userid]) {
+		users[userid] = [];
+	}
 
-  // If we've never seen a user before, add them to memory
-  const userid = message.author.id;
-  if (!users[userid]) {
-    users[userid] = [];
-  }
-
-  // Evaluate attributes of user's message
-  let shouldKick = false;
-  try {
-    shouldKick = await evaluateMessage(message);
-  } catch (err) {
-    console.log(err);
-  }
-  if (shouldKick) {
-    kickBaddie(message.author, message.guild);
-    delete users[message.author.id];
-    message.channel.send(`Kicked user ${message.author.username} from channel`);
-    return;
-  }
+	let shouldKick = false;
+	try {
+		shouldKick = await evaluateMessage(message);
+	} catch (err) {
+		console.log(err);
+	}
+	if (shouldKick) {
+		kickBaddie(message.author, message.guild);
+		delete users[message.author.id];
+		message.channel.send(`Kicked user ${message.author.username} from channel`);
+		return;
+	}
 });
 
 client.manager = new Manager({

@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 function doMagic8Ball() {
-	var rand = ["It is certain", "It is decidedly so", "Without a doubt", "Yes – definitely", "You may rely on it", "As I see it", "yes", "Most Likely", "Outlook good", "Yes", "Signs point to yes", "no", "No"];
+	var rand = ["It is certain", "It is decidedly so", "Without a doubt", "Yes ï¿½ definitely", "You may rely on it", "As I see it", "yes", "Most Likely", "Outlook good", "Yes", "Signs point to yes", "no", "No"];
 	return rand[Math.floor(Math.random() * rand.length)];
 }
 
