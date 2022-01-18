@@ -1,3 +1,4 @@
+/* Example usage of some features of the Perspective API */
 const {google} = require('googleapis');
 
 require('dotenv').config();
@@ -8,17 +9,24 @@ require('dotenv').config();
 // "ATTACK_ON_AUTHOR", "ATTACK_ON_COMMENTER", "INCOHERENT",
 // "INFLAMMATORY", "OBSCENE", "SPAM", "UNSUBSTANTIAL"];
 
+// Set your own thresholds for when to trigger a response
 const attributeThresholds = {
-  'INSULT': 0.75,
-  'TOXICITY': 0.75,
-  'SPAM': 0.75,
-  'INCOHERENT': 0.75,
-  'FLIRTATION': 0.75,
+  'INSULT': 0.9,
+  'TOXICITY': 0.9,
+  'SPAM': 0.9,
+  'INCOHERENT': 0.9,
+  'FLIRTATION': 0.9,
 };
 
+/**
+ * Analyze attributes in a block of text
+ * @param {string} text - text to analyze
+ * @return {json} res - analyzed atttributes
+ */
 async function analyzeText(text) {
   const analyzer = google.commentanalyzer('v1alpha1');
 
+  // This is the format the API expects
   const requestedAttributes = {};
   for (const key in attributeThresholds) {
     requestedAttributes[key] = {};
