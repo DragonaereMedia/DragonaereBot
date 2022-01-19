@@ -4,10 +4,11 @@ Dragonaere, a bot made by Dragonaere, a human
 
 ## Features
 
-- None...
-- Just kidding, I'm just slow and procrastinating.
+- 8 Ball
+- Test ping
 - (SOON) Moderation
 - (SOON) Music
+- (SOON) More fun commands
 - More
 
 ## More
