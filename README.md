@@ -12,7 +12,7 @@ Dragonaere, a bot made by Dragonaere, a human
 
 ## More
 
-For more info go to [Dragonaere Website](https://www.dragonaere.tech)\
+For more info go to [Dragonaere Website](https://www.dragonaere.tech)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dragonaere)\
 [![Patreon](assets/Patreon.png)](https://www.patreon.com/dragonaere)
