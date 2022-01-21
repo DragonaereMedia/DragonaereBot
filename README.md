@@ -4,14 +4,16 @@ Dragonaere, a bot made by Dragonaere, a human
 
 ## Features
 
-- None...
-- Just kidding, I'm just slow and procrastinating.
+- 8 Ball
+- Test ping
 - (SOON) Moderation
 - (SOON) Music
+- (SOON) More fun commands
 - More
 
 ## More
 
 For more info go to [Dragonaere Website](https://www.dragonaere.tech)
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dragonaere)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dragonaere)\
 [![Patreon](assets/Patreon.png)](https://www.patreon.com/dragonaere)
