@@ -17,7 +17,7 @@ module.exports = {
 			.setThumbnail(userAvatar)
 			//.addField(userBanner)
         		.addField(`Account Created ${interaction.user.createdAt}`)
-        		.addField(`Joined Server ${interaction.guild.joinedAt`)
+        		.addField(`Joined Server ${interaction.guild.joinedAt}`)
 			.setTimestamp()
 			.setFooter({text:'/user'});
 			await interaction.reply({embeds: [userEmbed]});
