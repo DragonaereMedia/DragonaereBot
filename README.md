@@ -5,6 +5,8 @@ Dragonaere, a bot made by Dragonaere, a human
 ## Features
 
 - 8 Ball
+- User Info
+- Server Info
 - Test ping
 - (SOON) Moderation
 - (SOON) Music
