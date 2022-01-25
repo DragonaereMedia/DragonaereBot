@@ -1,25 +1,30 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder, inlineCode } = require('@discordjs/builders');
+const { MessageEmbed, GuildMember, User } = require('discord.js');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('user')
 		.setDescription('Replies with user info!'),
 		async execute(interaction) {
-        		interaction.user.fetchFlags(true)
-        		interaction.user.fetch(true)
-        		userTag=interaction.user.tag
-	        	userAvatar=interaction.user.displayAvatarURL('webp',128,true)
-        		//userBanner=interaction.user.bannerURL('webp',512,true)
-        		const userEmbed = new MessageEmbed()
-			.setColor('#0099ff')
+			await interaction.user.fetch()
+        	let userTag=interaction.user.tag
+        	let userAvatar=interaction.user.displayAvatarURL({dynamic: true})
+        	let userBanner=interaction.user.bannerURL({dynamic: true})
+			let userCreatedDate=interaction.user.createdAt
+			let userCreated=userCreatedDate.toLocaleString({timeZoneName: "short"})
+			let userJoinedDate=interaction.member.joinedAt
+			let userJoined=userJoinedDate.toLocaleString({timeZoneName: "short"})
+        	const userEmbed = new MessageEmbed()
 			.setTitle(userTag)
 			.setThumbnail(userAvatar)
-			//.addField(userBanner)
-        		.addField(`Account Created ${interaction.user.createdAt}`)
-        		.addField(`Joined Server ${interaction.guild.joinedAt}`)
+			.setImage(userBanner)
+        	.addField('Account Created: ', `${userCreated}`)
+        	.addField('Joined Server: ', `${userJoined}`)
+			//.addField('Roles: ', `${interaction.member.roles.cache}`)
 			.setTimestamp()
-			.setFooter({text:'/user'});
+			.setFooter({text: "Generated using /user "});
 			await interaction.reply({embeds: [userEmbed]});
 		},
 };
+//{embeds: [userEmbed]}
