@@ -22,7 +22,6 @@ const emojiMap = {
 };
 
 // Store some state about user karma.
-// TODO: Migrate to a DB, like Firebase
 const users = {};
 
 /**
@@ -55,7 +54,6 @@ async function evaluateMessage(message) {
 		console.log(err);
 		return false;
 	}
-	// Return whether or not we should kick the user
 	return (users[userid]['TOXICITY'] > process.env.KICK_THRESHOLD);
 }
 
@@ -80,16 +78,9 @@ function getKarma() {
 	return scores.join('\n');
 }
 
-client.on('ready', () => {
-	console.log('I am ready!');
-});
-
 client.on('message', async (message) => {
-	// Ignore messages that aren't from a guild
-	// or are from a bot
 	if (!message.guild || message.author.bot) return;
 	
-	// If we've never seen a user before, add them to memory
 	const userid = message.author.id;
 	if (!users[userid]) {
 		users[userid] = [];
