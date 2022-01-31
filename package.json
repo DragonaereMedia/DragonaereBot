@@ -4,18 +4,26 @@
   "description": "Dragonaere Discord Bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Andrew Still",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
+    "@discordjs/collection": "^0.5.0",
+    "@discordjs/form-data": "^3.0.1",
     "@discordjs/rest": "^0.2.0-canary.0",
+    "azuma": "^2.1.2",
+    "bufferutil": "^4.0.6",
+    "cheshire": "^2.0.2",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
     "dotenv": "^12.0.1",
     "erela.js": "^2.3.3",
     "googleapis": "^92.0.0",
-    "seedrandom": "^3.0.5"
+    "kurasuta": "^3.0.1",
+    "petitio": "^1.4.0",
+    "seedrandom": "^3.0.5",
+    "shoukaku": "^2.1.4"
   }
 }

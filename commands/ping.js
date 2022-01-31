@@ -7,6 +7,6 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Gets the Bots ping!'),
 	async execute(interaction) {
-		await interaction.reply(`Latency is ${Interaction.ping}ms. API Latency is ${Math.round(client.ws)}ms`);
+		await interaction.reply(`${Math.round(message.createdTimestamp - interaction.createdTimestamp)}ms`);
 	},
 };

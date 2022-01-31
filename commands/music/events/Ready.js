@@ -1,0 +1,29 @@
+const MusicEvent = require('../abstract/MusicEvent.js');
+
+class Ready extends MusicEvent {
+    get name() {
+        return 'ready';
+    }
+
+    get once() {
+        return true;
+    }
+
+    async run() {
+        this.client.logger.debug(`${this.client.user.username}`, `Ready! Serving ${this.client.guilds.cache.size} guild(s) with ${this.client.users.cache.size} user(s)`);
+        if (!this.interval) {
+            await this.client.user.setActivity('It\'s the English-born returnee, Music! Nice to meet you!');
+            const statuses =  [
+                'Admiral! You\'ve got mail! Love Letters aren\'t allowed!',
+                'Always got to make time for tea-time!',
+                'Burning... Love!'
+            ];
+            this.interval = setInterval(() => {
+                const current = statuses.shift();
+                this.client.user.setActivity(current);
+                statuses.push(current);
+            }, 300000);
+        }
+    }
+}
+module.exports = Ready;
