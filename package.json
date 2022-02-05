@@ -18,7 +18,7 @@
     "cheshire": "^2.0.2",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
-    "dotenv": "^15.0.0",
+    "dotenv": "^16.0.0",
     "erela.js": "^2.3.3",
     "firebase-admin": "^10.0.2",
     "googleapis": "^92.0.0",
