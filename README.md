@@ -9,8 +9,8 @@ Dragonaere, a bot made by Dragonaere, a human
 - User Info
 - Server Info
 - Test ping
+- Music
 - (SOON) Moderation
-- (SOON) Music
 - (SOON) More fun commands
 - More
 
