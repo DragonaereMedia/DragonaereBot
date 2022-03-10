@@ -3,23 +3,10 @@
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-var admin = require("firebase-admin");
-
-var firebase = require("../firebase.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(firebase)
-});
-
-const db = admin.firestore();
-
 // db.collection('guilds').doc(interaction.guild.id).collection('users').doc(interaction.user.id).get()
 
 function getUserXp(userId) {
-    let userData = db.collection('guilds').doc(interaction.guild.id).collection('users').doc(userId);
-    let userLvl = userData.getString("userLvl");
-    let userXp = userData.getString("userId");
-    let getUserXpMessage = `Level: ${userLvl}\nXp: ${userXp}`
+    let getUserXpMessage = `Level: \nXp: `
     return getUserXpMessage;
 }
 
