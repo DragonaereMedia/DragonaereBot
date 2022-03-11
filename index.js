@@ -52,29 +52,8 @@ const ratelimitOptions = {
     requestOffset: 500
 };
 
-client.on("message", message => {
-    if (message.author.bot) return; // ignore bots
+const azuma = new Azuma(join(__dirname, '/commands/music/MusicBaseCluster.js'), sharderOptions, ratelimitOptions);
 
-    // if the user is not on db add the user and change his values to 0
-    //if (true) = {
-    //    userId: interaction.user.id,
-    //    userXp: 0,
-    //    userLvl: 0
-    //};
-    
-    //if(userInfo.xp > 100) {
-    //    userInfo.level++
-    //    userInfo.xp = 0
-    //    message.reply("Congratulations, you level up")
-    //}
-    
-    //fs.writeFile("./database.json", JSON.stringify(db), (x) => {
-    //    if (x) console.error(x)
-    //});
-})
-
-const bot = new Azuma(join(__dirname, '/commands/music/MusicBaseCluster.js'), sharderOptions, ratelimitOptions);
-
-bot
+azuma
     .spawn()
     .catch(console.error);

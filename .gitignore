@@ -366,3 +366,5 @@ FodyWeavers.xsd
 .env
 config.json
 dragonaere.code-workspace
+firebase.json
+firebase.json
