@@ -21,7 +21,7 @@
     "dotenv": "^16.0.0",
     "erela.js": "^2.3.3",
     "firebase-admin": "^10.0.2",
-    "googleapis": "^99.0.0",
+    "googleapis": "^100.0.0",
     "kurasuta": "^3.0.1",
     "petitio": "^1.4.0",
     "seedrandom": "^3.0.5",
