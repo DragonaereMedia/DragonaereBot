@@ -2,7 +2,6 @@ require('dotenv').config();
 const { Constants, Client, Collection, Intents, Util } = require('discord.js');
 const { Azuma } = require('azuma');
 const { join } = require('path');
-const perspective = require('./perspective.js');
 const fs = require('fs');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 client.commands = new Collection();
