@@ -365,6 +365,5 @@ FodyWeavers.xsd
 # Discord - Added by me
 .env
 config.json
-dragonaere.code-workspace
 firebase.json
-firebase.json
+DragonaereBot.code-workspace
