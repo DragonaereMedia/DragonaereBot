@@ -28,7 +28,7 @@ client.player = new Player(client, {
   leaveOnEmpty: true,
   leaveOnEmptyCooldown: 600000,
   autoSelfDeaf: true,
-  initialVolume: 100
+  initialVolume: 50
 });
 
 const { token, clientId, clientSecret, publicKey, youtubeSecret } = require('./config.json');
