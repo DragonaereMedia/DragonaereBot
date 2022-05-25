@@ -17,9 +17,8 @@ module.exports = {
         `**Bot Id:** ${bot.user.id}
         **Bot Tag:** ${bot.user.tag}
         **Created At :** ${createdAt.toDateString()}
-        **Developer:** [•OofyOofOof•#2018](https:\/\/youtube.com\/c\/BlackKnight683)
-        **Github Repo:** __[BlackKnight683/BrokenDisc](https:\/\/github.com\/BlackKnight683\/BrokenDisc)__
-        **Prefix:** \/`
+        **Developer:** [AndrewDragon#6969](https:\/\/youtube.com\/c\/AndrewDragon)
+        **Github Repo:** __[Dragonaere/DragonaereBot](https:\/\/github.com\/Dragonaere\/DragonaereBot)__`
       )
       .addField("Bot Stats",
         `**Users:** ${util.formatNumber(users)}
