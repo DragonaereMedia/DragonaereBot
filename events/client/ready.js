@@ -2,7 +2,6 @@ module.exports = {
   name: "ready",
   once: true,
   async execute(client) {
-    //initializing commands
     require("../../handler/CommandHandler")(client);
 
     const formatNum = client.utils.formatNumber;
