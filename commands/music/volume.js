@@ -18,6 +18,11 @@ module.exports = {
 
     if (!client.utils.modifyQueue(interaction)) return;
 
+    if (!Number.isInteger(newVol) || newVol > 200 || newVol < 0)
+      return client.say.warnMessage(interaction, "Provide a valid number between 1 to 200.");
+
+    queue.setVolume(newVol);
+
     if (!newVol) {
       const embed = client.say.baseEmbed(interaction)
         .setDescription(`Volume is at \`${queue.volume}%\`.`)
@@ -25,11 +30,6 @@ module.exports = {
 
       return interaction.reply({ ephemeral: true, embeds: [embed] }).catch(console.error);
     }
-
-    if (!Number.isInteger(newVol) || newVol > 200 || newVol < 0)
-      return client.say.warnMessage(interaction, "Provide a valid number between 1 to 200.");
-
-    queue.setVolume(newVol);
 
     return client.say.successMessage(interaction, `Volume is updated to \`${queue.volume}%\`.`);
   }
