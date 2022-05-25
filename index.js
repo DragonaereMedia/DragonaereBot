@@ -33,10 +33,6 @@ client.player = new Player(client, {
 
 const { token, clientId, clientSecret, publicKey, youtubeSecret } = require('./config.json');
 
-client.once("ready", () => {
-  console.log(`Logged in as ${clientId}`);
-});
-
 require("./handler/EventHandler")(client);
 
 client.login(token);
