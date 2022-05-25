@@ -1,58 +1,42 @@
-require('dotenv').config();
-const { Constants, Client, Collection, Intents, Util } = require('discord.js');
-const { Azuma } = require('azuma');
-const { join } = require('path');
-const fs = require('fs');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
-client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-const MusicClient = require('./commands/music/index.js');
-const { GUILDS, GUILD_MEMBERS, GUILD_BANS, GUILD_VOICE_STATES, GUILD_MESSAGES, GUILD_MESSAGE_REACTIONS } = Intents.FLAGS;
-const { token } = require('./config.json');
+require("./modules/checkValid");
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.data.name, command);
-}
+const { Client, Collection, Intents } = require('discord.js');
+const { Player } = require("discord-player");
 
-client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
+const Logger = require("./modules/Logger");
+const Embeds = require("./modules/Embeds");
+const Util = require("./modules/Util");
 
-	const command = client.commands.get(interaction.commandName);
-
-	if (!command) return;
-
-	try {
-		await command.execute(interaction)
-		console.log(`${interaction.user.tag} ran a command.`);
-
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-	}
+const client = new Client({
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.GUILD_VOICE_STATES
+  ],
+  allowedMentions: { parse: ["roles", "users"], repliedUser: false }
 });
 
-const customClientOptions = {
-    disableMentions: 'everyone',
-    restRequestTimeout: 30000,
-    intents: [ GUILDS, GUILD_MEMBERS, GUILD_BANS, GUILD_VOICE_STATES, GUILD_MESSAGES, GUILD_MESSAGE_REACTIONS ]
-};
+client.commands = new Collection();
 
-const sharderOptions = {
-    clientOptions: Util.mergeDefault(Constants.DefaultOptions, customClientOptions),
-    client: MusicClient,
-    timeout: 90000,
-    token
-};
+client.logger = Logger;
+client.utils = Util;
+client.say = Embeds;
 
-const ratelimitOptions = {
-    handlerSweepInterval: 2 * 6000,
-    hashInactiveTimeout: 4 * 6000,
-    requestOffset: 500
-};
+client.player = new Player(client, {
+  leaveOnEnd: true,
+  leaveOnStop: true,
+  leaveOnEmpty: true,
+  leaveOnEmptyCooldown: 60000,
+  autoSelfDeaf: true,
+  initialVolume: 100
+});
 
-const azuma = new Azuma(join(__dirname, '/commands/music/MusicBaseCluster.js'), sharderOptions, ratelimitOptions);
+const { token, clientId, clientSecret, publicKey, youtubeSecret } = require('./config.json');
 
-azuma
-    .spawn()
-    .catch(console.error);
+client.once("ready", () => {
+  console.log(`Logged in as ${clientId}`);
+});
+
+require("./handler/EventHandler")(client);
+
+client.login(token);
