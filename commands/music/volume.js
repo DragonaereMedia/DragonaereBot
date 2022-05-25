@@ -31,6 +31,6 @@ module.exports = {
       return interaction.reply({ ephemeral: true, embeds: [embed] }).catch(console.error);
     }
 
-    return client.say.successMessage(interaction, `Volume is updated to \`${queue.volume}%\`.`);
+    return client.say.successMessage(interaction, `Volume is updated to \`${newVol}%\`.`);
   }
 };
