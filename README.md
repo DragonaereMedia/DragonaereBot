@@ -1,6 +1,6 @@
 # Dragonaere
 
-Dragonaere, a bot made by Dragonaere, a human
+Dragonaere, a bot made by AndrewDragon
 
 ## Features
 
