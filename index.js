@@ -31,7 +31,7 @@ client.player = new Player(client, {
   initialVolume: 50
 });
 
-const { token, clientId, clientSecret, publicKey, youtubeSecret } = require('./config.json');
+const { token } = require('./config.json');
 
 require("./handler/EventHandler")(client);
 

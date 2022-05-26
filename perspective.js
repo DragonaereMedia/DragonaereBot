@@ -1,6 +1,6 @@
 const {google} = require('googleapis');
 
-require('dotenv').config();
+const { perspectiveKey } = require('./config.json');
 
 // attributes = ["TOXICITY", "SEVERE_TOXICITY", "IDENTITY_ATTACK", "INSULT",
 // "PROFANITY", "THREAT", "SEXUALLY_EXPLICIT", "FLIRTATION", "SPAM",
@@ -33,9 +33,11 @@ async function analyzeText(text) {
     requestedAttributes: requestedAttributes,
   };
 
-  const res = await analyzer.comments.analyze({
-    key: process.env.PERSPECTIVE_API_KEY,
-    resource: req},
+  const res = await analyzer.comments.analyze(
+    {
+      key: perspectiveKey,
+      resource: req
+    },
   );
 
   data = {};
