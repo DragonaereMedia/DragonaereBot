@@ -363,7 +363,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Discord - Added by me
-.env
 config.json
 firebase.json
 DragonaereBot.code-workspace
+newrelic.js
