@@ -3,7 +3,7 @@ require("./modules/checkValid");
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require("discord-player");
 
-require('newrelic');
+// require('newrelic');
 
 const Logger = require("./modules/Logger");
 const Embeds = require("./modules/Embeds");
