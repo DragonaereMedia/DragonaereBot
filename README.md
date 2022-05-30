@@ -4,14 +4,12 @@ Dragonaere, a bot made by AndrewDragon
 
 ## Features
 
-- 8 Ball
-- Coin Flip
-- User Info
+- Bot Info
 - Server Info
 - Test ping
 - Music
+- (NEXT) Stream/Upload Notifications
 - (SOON) Moderation
-- (SOON) More fun commands
 - More
 
 ## More
