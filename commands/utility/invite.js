@@ -6,7 +6,7 @@ module.exports = {
   category: "utility",
   execute(bot, interaction) {
     const embed = bot.say.baseEmbed(interaction)
-      .setAuthor({text: `${bot.user.tag}`})
+      .setAuthor(`Invite ${bot.user.username}`, bot.user.displayAvatarURL())
       .setDescription(`[Click to invite me to your server.](https://discord.com/api/oauth2/authorize?client_id=${bot.user.id}&permissions=8&scope=applications.commands%20bot)`)
       .setFooter({text: ``}).setTimestamp();
     const row = new MessageActionRow().addComponents([

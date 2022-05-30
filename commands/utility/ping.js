@@ -12,8 +12,7 @@ module.exports = {
 
     const embed2 = bot.say.baseEmbed(interaction)
       .setTitle("🏓 Pong")
-      .setDescription(`💓: ${Math.round(bot.ws.ping)} ms
-⏱️: ${Date.now() - interaction.createdTimestamp} ms`);
+      .setDescription(`💓: ${Math.round(bot.ws.ping)} ms`);
 
     return interaction.editReply({ embeds: [embed2] });
     } catch (e) {
