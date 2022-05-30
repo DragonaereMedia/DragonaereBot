@@ -42,20 +42,6 @@ mongoose.connect(mongodbUrl, {
   useUnifiedTopology: true,
 });
 
-client.on("ready", async () => {
-  console.log("Fetching members...");
-  for (const [id, guild] of client.guilds.cache) {
-    await guild.members.fetch();
-  }
-  console.log("Fetched members.");
-
-  console.log(
-    `Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`,
-  );
-
-  Dashboard(client);
-});
-
 require("./handler/EventHandler")(client);
 
 client.login(token);
