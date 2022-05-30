@@ -13,14 +13,15 @@
     "ffmpeg-static": "^5.0.0",
     "fs": "^0.0.1-security",
     "glob": "^8.0.3",
+    "mongoose": "^6.3.4",
     "newrelic": "^8.13.1",
+    "string-width": "^5.1.2",
     "ytdl-core": "^4.11.0"
   },
   "name": "dragonaere",
   "description": "Dragonaere, a bot made by AndrewDragon",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dragonaere/DragonaereBot.git"
