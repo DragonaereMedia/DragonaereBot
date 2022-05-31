@@ -29,6 +29,6 @@ module.exports = {
 
     queue.remove(index);
 
-    return client.say.successMessage(interaction, `Removed track \`${index}\`.`);
+    return client.say.successMessage(interaction, `Removed track \`${index+1}\`.`);
   }
 };
