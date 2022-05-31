@@ -16,7 +16,6 @@ module.exports = {
       .setURL(`${supportServer}`)
     ]);
 
-
     return interaction.reply({ ephemeral: true, components: [row] });
   }
 };

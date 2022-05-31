@@ -49,7 +49,7 @@ module.exports = {
         break;
       case "track":
         queue.setRepeatMode(QueueRepeatMode.TRACK);
-        mode = "Repeating track activated";
+        mode = "Looping Current Track";
         break;
       case "queue":
         queue.setRepeatMode(QueueRepeatMode.QUEUE);
