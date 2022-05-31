@@ -32,7 +32,9 @@ module.exports = {
       return client.say.errorMessage(interaction, "No lyrics were found for this song.");
 
     const embed = client.say.baseEmbed(interaction)
-      .setTitle(`${query}`)
+      .setTitle(`${result.title}`)
+      .setURL(`${result.url}`)
+      .setThumbnail(`${result.thumbnail}`)
       .setDescription(`${result.lyrics.slice(0, 4090)}...`);
 
     return interaction.editReply({ embeds: [embed] }).catch(console.error);
