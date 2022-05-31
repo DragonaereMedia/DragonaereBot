@@ -28,11 +28,11 @@ module.exports = {
       return client.say.warnMessage(interaction, "I need \`Create Invite\` permission.");
 
     const invite = await channel.createInvite({
-      targetApplication: "755600276941176913",
+      targetApplication: "931671325737635840",
       targetType: 2
     });
 
-    const embed = client.say.rootEmbed(interaction)
+    const embed = client.say.baseEmbed(interaction)
       .setTitle(`Successfully setup **YouTube Watch Together** activity to **${channel.name}** channel.`);
 
     const btnRow = new MessageActionRow().addComponents([
