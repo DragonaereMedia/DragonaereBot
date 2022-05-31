@@ -24,7 +24,7 @@ module.exports = {
 
     const queryFormated = query
       .toLowerCase()
-      .replace(/\(【original song】|【animated mv】|lyrics|lyric|official music video|official video hd|official video|audio|official|clip officiel|clip|extended|hq\)/g, "");
+      .replace(/\(「|」|【|】|original song|lyrics|lyric|official music video|official video hd|official video|audio|official|clip officiel|clip|extended|hq\)/g, "");
 
     const result = await lyricsClient.search(`${queryFormated}`);
 
