@@ -369,3 +369,26 @@ DragonaereBot.code-workspace
 newrelic.js
 
 streamers.txt
+node_modules/discord-api-types/package.json
+node_modules/discord-api-types/README.md
+node_modules/discord-api-types/payloads/common.d.ts
+node_modules/discord-api-types/payloads/common.d.ts.map
+node_modules/discord-api-types/payloads/v10/_interactions/applicationCommands.d.ts
+node_modules/discord-api-types/payloads/v10/_interactions/applicationCommands.d.ts.map
+node_modules/discord-api-types/payloads/v10/_interactions/_applicationCommands/permissions.d.ts
+node_modules/discord-api-types/payloads/v9/_interactions/applicationCommands.d.ts
+node_modules/discord-api-types/payloads/v9/_interactions/applicationCommands.d.ts.map
+node_modules/discord-api-types/payloads/v9/_interactions/_applicationCommands/permissions.d.ts
+node_modules/discord-api-types/rest/common.d.ts
+node_modules/discord-api-types/rest/common.d.ts.map
+node_modules/discord-api-types/rest/common.js
+node_modules/discord-api-types/rest/common.js.map
+node_modules/discord-api-types/rest/v10/guild.d.ts
+node_modules/discord-api-types/rest/v10/guild.d.ts.map
+node_modules/discord-api-types/rest/v10/interactions.d.ts
+node_modules/discord-api-types/rest/v10/interactions.d.ts.map
+node_modules/discord-api-types/rest/v9/guild.d.ts
+node_modules/discord-api-types/rest/v9/guild.d.ts.map
+node_modules/discord-api-types/rest/v9/index.d.ts
+node_modules/discord-api-types/rest/v9/interactions.d.ts
+node_modules/discord-api-types/rest/v9/interactions.d.ts.map
