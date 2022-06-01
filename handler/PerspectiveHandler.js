@@ -1,6 +1,6 @@
 const {google} = require('googleapis');
 
-const { perspectiveKey } = require('./config.json');
+const { perspectiveKey } = require('../config.json');
 
 // attributes = ["TOXICITY", "SEVERE_TOXICITY", "IDENTITY_ATTACK", "INSULT",
 // "PROFANITY", "THREAT", "SEXUALLY_EXPLICIT", "FLIRTATION", "SPAM",

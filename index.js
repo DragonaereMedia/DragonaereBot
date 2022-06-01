@@ -4,9 +4,7 @@ require("discord-player/smoothVolume");
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require("discord-player");
 
-const mongoose = require("mongoose");
-
-// require('newrelic');
+require('newrelic');
 
 const Logger = require("./modules/Logger");
 const Embeds = require("./modules/Embeds");
@@ -36,13 +34,21 @@ client.player = new Player(client, {
   initialVolume: 50
 });
 
-const { token, mongodbUrl } = require('./config.json');
+const Firestore = require('@google-cloud/firestore');
 
-mongoose.connect(mongodbUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const db = new Firestore({
+  projectId: 'dragonaerebot',
+  keyFilename: 'dragonaerebot-firebase-adminsdk-g1ing-09bedfd2c3.json',
 });
 
+const { token } = require('./config.json');
+
 require("./handler/EventHandler")(client);
+
+client.on("guildCreate", async guild => {
+  const guildId = guild.id;
+  const addGuild = db.collection('guilds').doc(`${guildId}`);
+  await addGuild.set({ 'guildId': guild.id, 'guildName': guild.name }, { merge: true });
+})
 
 client.login(token);

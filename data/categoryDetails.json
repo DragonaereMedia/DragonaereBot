@@ -2,5 +2,8 @@
   "music": "Music Commands",
   "filters": "Music Filters",
   "utility": "Utility Commands",
-  "botowner": "Owner Commands"
+  "botowner": "Owner Commands",
+  "moderation": "Moderation Commands",
+  "streams": "Twitch/YouTube strea/upload Notifications Commands",
+  "admin": "Commands That Require Admin Permission"
 }

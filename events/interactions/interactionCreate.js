@@ -1,4 +1,5 @@
 const { owners } = require("../../config.json");
+const { Permissions } = require('discord.js');
 
 module.exports = {
   name: "interactionCreate",
@@ -16,6 +17,9 @@ module.exports = {
 
       if ((command.category === "botowner" || command.ownerOnly === true) && !owners.includes(interaction.user.id))
         return client.say.errorMessage(interaction, "This command can only be used by the bot owners.");
+
+      if ((command.category === "admin" || command.adminOnly === true) && !interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR))
+        return client.say.errorMessage(interaction, "This command can only be used by the server admins.");
 
       await command.execute(client, interaction);
     } catch (err) {
