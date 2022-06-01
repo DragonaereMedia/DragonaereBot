@@ -48,6 +48,7 @@ require("./handler/EventHandler")(client);
 client.on("guildCreate", async guild => {
   const guildId = guild.id;
   const addGuild = db.collection('guilds').doc(`${guildId}`);
+  
   await addGuild.set({ 'guildId': guild.id, 'guildName': guild.name }, { merge: true });
 })
 
