@@ -4,7 +4,6 @@ const { inspect } = require("util");
 module.exports = {
   name: "eval",
   description: "Execute a piece of javascript code",
-  category: "botowner",
   ownerOnly: true,
   usage: "<code>",
   options: [{
