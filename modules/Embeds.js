@@ -5,9 +5,9 @@ const DJS = require("discord.js");
  * @param {(DJS.Interaction|DJS.Guild|import("discord.player").Queue|string)} [resolvable]
  */
 function baseEmbed(resolvable) {
-  let colour = "#00FFFF";
+  let colour = "#FF6D00";
   if (resolvable && typeof resolvable === "string") colour = resolvable;
-  if (resolvable && typeof resolvable === "object") colour = ("guild" in resolvable ? resolvable.guild : resolvable)?.me?.displayColor || "#00FFFF";
+  if (resolvable && typeof resolvable === "object") colour = ("guild" in resolvable ? resolvable.guild : resolvable)?.me?.displayColor || "#FF6D00";
 
   return new DJS.MessageEmbed()
     .setColor(colour);
@@ -31,7 +31,7 @@ function successMessage(interaction, text, ephemeral = false) {
 
   const embedS = new DJS.MessageEmbed()
     .setDescription(text)
-    .setColor(interaction.guild.me.displayColor || "#00FFFF");
+    .setColor(interaction.guild.me.displayColor || "#FF6D00");
 
   if (interaction.deferred || interaction.replied) {
     return interaction.editReply({ embeds: [embedS] }).catch(console.error);
@@ -109,7 +109,7 @@ function queueMessage(queue, text, color) {
   const { havePermissions } = require("./Util");
   if (!havePermissions(queue.metadata.channel)) return;
 
-  let colour = queue.guild.me.displayColor || "#00FFFF";
+  let colour = queue.guild.me.displayColor || "#FF6D00";
   if (color) colour = color;
 
   const embedQ = new DJS.MessageEmbed()

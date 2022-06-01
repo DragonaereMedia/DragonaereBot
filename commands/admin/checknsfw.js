@@ -4,7 +4,7 @@ module.exports = {
     category: "admin",
     adminOnly: true,
     async execute(client, interaction) {
-        const nsfwLevel = interaction.guild.NSFWLevel
+        const nsfwLevel = interaction.guild.nsfwLevel;
         await client.say.successMessage(interaction, `NSFW Level: ${nsfwLevel}`, true);
     }
 };
