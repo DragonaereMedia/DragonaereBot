@@ -3,6 +3,7 @@ require("discord-player/smoothVolume");
 
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require("discord-player");
+const express = require('express')
 
 require('newrelic');
 
@@ -50,6 +51,17 @@ client.on("guildCreate", async guild => {
   const addGuild = db.collection('guilds').doc(`${guildId}`);
   
   await addGuild.set({ 'guildId': guild.id, 'guildName': guild.name }, { merge: true });
+})
+
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
 
 client.login(token);
