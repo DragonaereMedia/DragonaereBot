@@ -16,11 +16,7 @@
     "firebase-admin": "^10.2.0",
     "fs": "^0.0.1-security",
     "glob": "^8.0.3",
-<<<<<<< HEAD
     "newrelic": "^8.13.2",
-=======
-    "newrelic": "^8.13.2",
->>>>>>> a0d9ae37cb16ced41a977a39613317f0d68a16df
     "string-width": "^5.1.2",
     "ytdl-core": "^4.11.0"
   },
