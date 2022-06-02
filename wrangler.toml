@@ -1,6 +1,0 @@
-name = "dragonaere"
-compatibility_date = "2022-06-02"
-account_id = "dc47531a99a2a57772f8c6cb091034e5"
-main = "index.js"
-node_compat = true
-workers_dev = true
