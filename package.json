@@ -33,8 +33,5 @@
   "bugs": {
     "url": "https://github.com/Dragonaere/DragonaereBot/issues"
   },
-  "homepage": "https://github.com/Dragonaere/DragonaereBot#readme",
-  "devDependencies": {
-    "wrangler": "^2.0.7"
-  }
+  "homepage": "https://github.com/Dragonaere/DragonaereBot#readme"
 }
