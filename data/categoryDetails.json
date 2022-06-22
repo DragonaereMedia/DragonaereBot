@@ -1,6 +1,7 @@
 {
   "music": "Music Commands",
   "filters": "Music Filters",
+  "fun": "fun",
   "utility": "Utility Commands",
   "moderation": "Moderation Commands",
   "streams": "Twitch/YouTube stream/upload Notifications Commands",
