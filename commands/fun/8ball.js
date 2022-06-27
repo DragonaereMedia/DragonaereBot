@@ -9,10 +9,10 @@ module.exports = {
         required: true
     }],
     async execute(client, interaction) {
-        const responses = ["It is certain", "Reply hazy, try again","Don’t count on it", "It is decidedly so","Ask again later","My reply is no","Without a doubt","Better not tell you now",	"My sources say no","Yes definitely","Cannot predict now",	"Outlook not so good","You may rely on it","Concentrate and ask again",	"Very doubtful","As I see it, yes","Most likely","Outlook good","Yes","Signs point to yes"];
+        const responses = ["42", "It is certain", "Reply hazy, try again","Don’t count on it", "It is decidedly so","Ask again later","My reply is no","Without a doubt","Better not tell you now",	"My sources say no","Yes definitely","Cannot predict now",	"Outlook not so good","You may rely on it","Concentrate and ask again",	"Very doubtful","As I see it, yes","Most likely","Outlook good","Yes","Signs point to yes"];
         let questionString = interaction.options.getString("question", true);
         function generateResponse() {
-            let arrayNumber = Math.floor(Math.random()*19);
+            let arrayNumber = Math.floor(Math.random()*20);
             return responses[arrayNumber]
         }
         await client.say.successMessage(interaction, `**Question:** ${questionString}\n**Answer:** ${generateResponse()}`);
