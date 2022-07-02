@@ -16,7 +16,7 @@ module.exports = {
       .setTitle(`${track.title}`)
       .setURL(`${track.url}`)
       .setThumbnail(`${track.thumbnail}`)
-      .setDescription(`Duration: ${track.duration}`);
+      .setDescription(`${queue.createProgressBar(timecodes = true, length = 15)}`);
 
     return interaction.reply({ ephemeral: true, embeds: [embed] }).catch(console.error);
   }

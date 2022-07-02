@@ -16,15 +16,13 @@ module.exports = {
         required:false
     }],
     async execute(client, interaction) {
-        const numberToDelete = interaction.options.getNumber('number');
-        const thisChannel = interaction.options.getChannel('channel');
         let channelToPurge;
-        if (thisChannel == null){
+        if (interaction.options.getChannel('channel') == null){
             channelToPurge = interaction.channel;
         } else {
-            channelToPurge = thisChannel;
+            channelToPurge = interaction.options.getChannel('channel');
         }
-        channelToPurge.bulkDelete(numberToDelete);
-        await client.say.successMessage(interaction, `Purged ${numberToDelete} messages from ${channelToPurge}`, true);
+        await channelToPurge.bulkDelete(interaction.options.getNumber('number'));
+        return client.say.successMessage(interaction, `Purged ${interaction.options.getNumber('number')} messages from ${channelToPurge}`, true);
     }
 };
