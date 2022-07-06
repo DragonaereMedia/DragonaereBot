@@ -21,4 +21,4 @@ I want to eventually add a dashboard, but that will take time. Currently everyth
 For more info go to [Dragonaere Website](https://www.dragonaere.tech)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dragonaere)\
-[![Patreon](https://cdn.dragonaere.tech/discord/bot-assets/Patreon.png)](https://www.patreon.com/dragonaere)
+[![Patreon](https://cdn.andrewdragon.dev/discord/bot-assets/Patreon.png)](https://www.patreon.com/dragonaere)
