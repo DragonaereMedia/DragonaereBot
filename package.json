@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@discord-player/extractor": "^3.0.2",
-    "@discordjs/builders": "^0.13.0",
+    "@discordjs/builders": "^0.15.0",
     "@discordjs/opus": "^0.8.0",
     "@discordjs/rest": "^0.4.1",
     "@discordjs/voice": "^0.10.0",
