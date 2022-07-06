@@ -1,5 +1,4 @@
 require("./modules/checkValid");
-require("discord-player/smoothVolume");
 
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require("discord-player");
