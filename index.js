@@ -2,6 +2,7 @@ require("./modules/checkValid");
 
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require("discord-player");
+const downloader = require("@discord-player/downloader").Downloader;
 const express = require('express')
 
 require('newrelic');
@@ -33,6 +34,8 @@ client.player = new Player(client, {
   autoSelfDeaf: true,
   initialVolume: 50
 });
+
+client.player.use("YOUTUBE_DL", downloader);
 
 const Firestore = require('@google-cloud/firestore');
 

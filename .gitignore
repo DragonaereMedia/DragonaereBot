@@ -369,6 +369,4 @@ DragonaereBot.code-workspace
 newrelic.js
 streamers.txt
 node_modules/
-node_modules/
-node_modules/
-node_modules/
+start.bat
