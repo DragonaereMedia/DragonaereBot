@@ -58,7 +58,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${process.env.PORT}`)
 })
 
 client.login(process.env.TOKEN);
