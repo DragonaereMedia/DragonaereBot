@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "node index.js",
-    "start": "npm run dev",
+    "start": "npm run dev"
   },
   "name": "dragonaere",
   "description": "Dragonaere, a bot made by AndrewDragon",
