@@ -1,5 +1,3 @@
-require("./modules/checkValid");
-
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require("discord-player");
 const downloader = require("@discord-player/downloader").Downloader;
