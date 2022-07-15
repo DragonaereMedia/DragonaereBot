@@ -1,4 +1,3 @@
-const config = require("../../config.json");
 const { version: djsVersion, MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = {
@@ -36,7 +35,7 @@ module.exports = {
     const button1 = new MessageButton()
       .setLabel("Support")
       .setStyle("LINK")
-      .setURL(`${config.supportServer}`);
+      .setURL(`${process.env.supportServer}`);
 
     const button2 = new MessageButton()
       .setLabel("Invite")

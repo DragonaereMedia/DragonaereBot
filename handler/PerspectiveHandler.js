@@ -1,7 +1,5 @@
 const {google} = require('googleapis');
 
-const { perspectiveKey } = require('../config.json');
-
 // attributes = ["TOXICITY", "SEVERE_TOXICITY", "IDENTITY_ATTACK", "INSULT",
 // "PROFANITY", "THREAT", "SEXUALLY_EXPLICIT", "FLIRTATION", "SPAM",
 // "ATTACK_ON_AUTHOR", "ATTACK_ON_COMMENTER", "INCOHERENT",
@@ -35,7 +33,7 @@ async function analyzeText(text) {
 
   const res = await analyzer.comments.analyze(
     {
-      key: perspectiveKey,
+      key: process.env.perspectiveKey,
       resource: req
     },
   );

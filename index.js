@@ -42,8 +42,6 @@ const db = new Firestore({
   keyFilename: 'dragonaerebot-firebase-adminsdk-g1ing-09bedfd2c3.json',
 });
 
-const { token } = require('./config.json');
-
 require("./handler/EventHandler")(client);
 
 client.on("guildCreate", async guild => {
@@ -64,4 +62,4 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-client.login(token);
+client.login(process.env.TOKEN);

@@ -1,6 +1,5 @@
 const catDetails = require("../../data/categoryDetails.json");
 const categories = require("../../data/categories.json");
-const config = require("../../config.json");
 const { MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = {
@@ -45,7 +44,7 @@ module.exports = {
     for (let j = 0; j < cates.length; j++) {
       const name = catDetails[categories[j]];
 
-      if (categories[j] === "botowner" && !config.owners.includes(interaction.user.id)) continue;
+      if (categories[j] === "botowner" && !process.env.owners.includes(interaction.user.id)) continue;
 
       embed.addField(`${name}`, `\`\`\`${cates[j].join(", ")}\`\`\``);
     };
@@ -53,7 +52,7 @@ module.exports = {
     const button1 = new MessageButton()
       .setLabel("Support")
       .setStyle("LINK")
-      .setURL(`${config.supportServer}`);
+      .setURL(`${process.env.supportServer}`);
 
     const button2 = new MessageButton()
       .setLabel("Invite")
