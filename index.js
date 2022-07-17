@@ -1,6 +1,7 @@
 const { Client, Collection, Intents } = require('discord.js');
 const { Player } = require("discord-player");
 const downloader = require("@discord-player/downloader").Downloader;
+require('dotenv').config();
 const express = require('express')
 
 require('newrelic');
@@ -61,4 +62,6 @@ app.listen(process.env.PORT || 3000, () => {
   console.log(`Example app listening on port ${process.env.PORT}`)
 })
 
-client.login(process.env.TOKEN);
+const token = process.env.TOKEN;
+
+client.login(token);
